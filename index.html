@@ -5,97 +5,186 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Formulario</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/assets/css/docs.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.4/countUp.min.js" integrity="sha512-YwCyPq75+lIz6RnVKlZWj6x6UJUw5hIW8suk5Tcclv6J4+fnm0A5lQ5kIx5DwDm+bU5jZKjUqKB6EeDvZLmYw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl7/1L_dstPt3HV5HzF6Gvk/e3s4Wz6iJgD/+ub2oU" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    
   <div class="container text-center">
    </div>
    <div class="container">
     <div class="container mb-5">
       <div class="row">
         <form>
-  <div class="mb-3">
-    <label class="form-label">ID</label>
+  <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputLlamada" placeholder="Identificacion de la llamada">
      <button class="btn btn-outline-secondary copyButton" type="button" data-target="InputLlamada">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button" data-target="InputLlamada">PASTE</button>
+  <label class="form-label">ID</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">TELEFONO</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputPhone" placeholder="Numero para retornar la llamada">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">TELEFONO</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">NOMBRE</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputName" placeholder="Nombre">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">NOMBRE</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">CEDULA</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputCC"  placeholder="Cedula del cliente">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">CEDULA</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">CONTRATO</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputContrato"  placeholder="Numero de contrato">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">CONTRATO</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">E-MAIL</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputEmail"  placeholder="Correo Electronico">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">E-MAIL</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">DIRECCIÓN</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputDireccion"  placeholder="Direccion">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">DIRECCIÓN</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">OE/PEDIDO</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputPedido"  placeholder="Pedido o OE">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">OE/PEDIDO</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">RADICADO</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputRadicado"  placeholder="Radicado sea de Portal o IDC o Siebel">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">RADICADO</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">SOLUCIÓN</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputSolucion"  placeholder="Solucion propuesta">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">SOLUCIÓN</label>
   </div>
-   <div class="mb-3">
-    <label class="form-label">RESULTADO</label>
+   <div class="mb-1">
     <input type="text" class="form-control-sm" id="InputResultado"  placeholder="Resultado de la llamada">
      <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">RESULTADO</label>
   </div>
-  <div class="form-floating">
-  <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-  <label for="floatingTextarea">DESCRIPCION</label>
-</div>
+  <div class="mb-1">
+    <input type="text" class="form-control-sm" id="InputDescripcion"  placeholder="Resultado de la llamada">
+     <button class="btn btn-outline-secondary copyButton" type="button">COPY</button>
+  <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
+  <label class="form-label">DESCRIPCION</label>
+  </div>
   <button type="submit" class="btn btn-outline-light" id="btnAdd" onclick="AddData()">GUARDAR</button>
   <button onclick="saveDataToFile()" class="btn btn-outline-light">Guardar en Archivo de Texto</button>
   <button type="submit" class="btn btn-outline-light" id="btnUpdate" >Actualizar Datos</button>
 </form>
 </div>
+
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fs-5" id="editModalLabel">Editar Datos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editForm">
+                    <div class="form-group">
+                        <label class="form-label">ID</label>
+                        <input type="text" class="form-control" id="ID">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPhone">TELEFONO:</label>
+                        <input type="text" class="form-control" id="InputPhone">
+                    </div>
+                    <div class="form-group">
+                        <label for="NOMBRE">NOMBRE:</label>
+                        <input type="text" class="form-control" id="InputName">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputCC">CEDULA:</label>
+                        <input type="text" class="form-control" id="InputCC">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputContrato">CONTRATO:</label>
+                        <input type="text" class="form-control" id="InputContrato">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputEmail">E-MAIL:</label>
+                        <input type="text" class="form-control" id="InputEmail">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputDireccion">DIRECCIÓN:</label>
+                        <input type="text" class="form-control" id="InputDireccion">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputPedido">OE/PEDIDO:</label>
+                        <input type="text" class="form-control" id="InputPedido">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputRadicado">RADICADO:</label>
+                        <input type="text" class="form-control" id="InputRadicado">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputSolucion">SOLUCIÓN:</label>
+                        <input type="text" class="form-control" id="InputSolucion">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputResultado">RESULTADO:</label>
+                        <input type="text" class="form-control" id="InputResultado">
+                    </div>
+                    <div class="form-group">
+                        <label for="InputDescripcion">DESCRIPCION:</label>
+                        <input type="text" class="form-control" id="InputDescripcion">
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" onclick="saveChanges()">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  </div>
+</div>
 <hr>
 <table class="table table-bordered" id="tableData">
     <thead>
         <tr>
+            <th>ID</th>
+            <th>Teléfono</th>
             <th>Nombre</th>
-            <th>Telefono</th>
+            <th>Cedula</th>
+            <th>Contrato</th>
+            <th>Email</th>
+            <th>Direccion</th>
+            <th>Pedido</th>
+            <th>Radicado</th>
+            <th>Solucion</th>
             <th>Resultado</th>
+            <th>Descripcion</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -107,6 +196,7 @@
 
 
   <script src="main.js"></script>
+  <script src="Temporizador.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
