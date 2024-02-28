@@ -1,4 +1,3 @@
-//funcion copiar y pegar de los botones de la derecha de los labels    
 document.querySelectorAll('.copyButton').forEach(function (button) {
       button.addEventListener('click', function() {
         var inputField = this.parentNode.querySelector('input');
@@ -30,19 +29,6 @@ document.querySelectorAll('.copyButton').forEach(function (button) {
       })
     });
 
-// Función para validar el formulario
-function ValidateForm() {
-    var inputs = document.getElementsByClassName("form-control");
-    var isValid = true;
-    for (var i = 0; i < inputs.length; i++) {
-        if (inputs[i].value === "") {
-            document.getElementById("error").innerHTML += "El campo " + inputs[i].id + " no puede estar vacío.\n";
-            inputs[i].style.borderColor = "#E34244";
-            isValid = false;
-        }
-    }
-    return isValid;
-}
 
 // Función para leer los datos almacenados
 function ReadData() {
@@ -98,7 +84,6 @@ document.onload = ReadData();
 
 // Función para agregar datos
 function AddData() {
-    if (ValidateForm()) {
         let id = document.getElementById('InputLlamada').value;
         let telefono = document.getElementById('InputPhone').value;
         let nombre = document.getElementById('InputName').value;
@@ -110,7 +95,7 @@ function AddData() {
         let radicado = document.getElementById('InputRadicado').value;
         let solucion = document.getElementById('InputSolucion').value;
         let resultado = document.getElementById('InputResultado').value;
-        let descripcion = document.getElementById('floatingTextarea').value;
+        let descripcion = document.getElementById('InputDescripcion').value;
         
         var listPeople;
         if (localStorage.getItem('listPeople') == null) {
@@ -118,6 +103,8 @@ function AddData() {
         } else {
             listPeople = JSON.parse(localStorage.getItem("listPeople"));
         }
+        // Verificar si al menos uno de los campos obligatorios está lleno
+    if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion) {
         listPeople.push({
             id: id,
             nombre: nombre,
@@ -130,68 +117,75 @@ function AddData() {
             radicado: radicado,
             solucion: solucion,
             resultado: resultado,
-            descripcion:descripcion
+            descripcion: descripcion
         });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
 
-        ReadData();
+         ReadData();
 
         // Limpiar los campos después de agregar datos
-        document.getElementById('InputLlamada').value;
-        document.getElementById('InputPhone').value;
-        document.getElementById('InputName').value;
-        document.getElementById('InputCC').value;
-        document.getElementById('InputContrato').value;
-        document.getElementById('InputEmail').value;
-        document.getElementById('InputDireccion').value;
-        document.getElementById('InputPedido').value;
-        document.getElementById('InputRadicado').value;
-        document.getElementById('InputSolucion').value;
-        document.getElementById('InputResultado').value;
-        document.getElementById('floatingTextarea').value;
- 
+        document.getElementById('InputLlamada').value = '';
+        document.getElementById('InputPhone').value = '';
+        document.getElementById('InputName').value = '';
+        document.getElementById('InputCC').value = '';
+        document.getElementById('InputContrato').value = '';
+        document.getElementById('InputEmail').value = '';
+        document.getElementById('InputDireccion').value = '';
+        document.getElementById('InputPedido').value = '';
+        document.getElementById('InputRadicado').value = '';
+        document.getElementById('InputSolucion').value = '';
+        document.getElementById('InputResultado').value = '';
+        document.getElementById('InputDescripcion').value = '';
+    } else {
+        alert("Por favor complete al menos uno de los campos obligatorios.");
     }
 }
 
 // Función para eliminar datos
 function deleteData(index) {
-    let listPeople = JSON.parse(localStorage.getItem('listPeople'));
-    listPeople.splice(index, 1);
-    localStorage.setItem('listPeople', JSON.stringify(listPeople));
-    ReadData(); // Actualizar la tabla después de eliminar los datos
+    if (confirm("¿Estás seguro de que quieres borrar este elemento?")) {
+        let listPeople = JSON.parse(localStorage.getItem('listPeople'));
+        listPeople.splice(index, 1);
+        localStorage.setItem('listPeople', JSON.stringify(listPeople));
+        ReadData(); // Actualizar la tabla después de eliminar los datos
+    }
 }
 
-// Función para editar datos (esto es solo un ejemplo, puedes adaptarlo según tus necesidades)
+// Función para cargar los datos en la tabla
+function loadTable() {
+    let listPeople = JSON.parse(localStorage.getItem('listPeople'));
+    let tableBody = $('#tablaEjemplo tbody');
+    tableBody.empty(); // Limpiar contenido anterior
+
+    if (listPeople) {
+        listPeople.forEach(function(person, index) {
+            let row = `<tr>
+                <td>${person.nombre}</td>
+                <td>${person.telefono}</td>
+                <!-- Agrega aquí las celdas de las otras columnas -->
+                <td><button class="btn btn-primary" onclick="editData(${index})">Editar</button></td>
+            </tr>`;
+            tableBody.append(row);
+        });
+    }
+}
+
+// Función para editar datos
 function editData(index) {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
-    let nombre = prompt("Ingrese el nuevo nombre:", listPeople[index].nombre);
-    let telefono = prompt("Ingrese el nuevo teléfono:", listPeople[index].telefono);
-    let cedula = prompt("Ingrese la nueva cédula:", listPeople[index].cedula);
-    let contrato = prompt("Ingrese el nuevo contrato:", listPeople[index].contrato);
-    let email = prompt("Ingrese el nuevo email:", listPeople[index].email);
-    let direccion = prompt("Ingrese la nueva dirección:", listPeople[index].direccion);
-    let pedido = prompt("Ingrese el nuevo OE/Pedido:", listPeople[index].pedido);
-    let radicado = prompt("Ingrese el nuevo radicado:", listPeople[index].radicado);
-    let solucion = prompt("Ingrese la nueva solución:", listPeople[index].solucion);
-    let resultado = prompt("Ingrese el nuevo resultado:", listPeople[index].resultado);
-    let descripcion = prompt("Ingrese la nueva descripción:", listPeople[index].descripcion);
-    
-    listPeople[index] = {
-        nombre: nombre,
-        telefono: telefono,
-        cedula: cedula,
-        contrato: contrato,
-        email: email,
-        direccion: direccion,
-        pedido: pedido,
-        radicado: radicado,
-        solucion: solucion,
-        resultado: resultado,
-        descripcion: descripcion
-    };
-    localStorage.setItem('listPeople', JSON.stringify(listPeople));
-    ReadData(); // Actualizar la tabla después de editar los datos
+    let person = listPeople[index];
+
+    // Rellenar los campos de la ventana modal con los datos existentes
+    $('#nombre').val(person.nombre);
+    $('#telefono').val(person.telefono);
+    // Rellena los demás campos de la misma manera
+
+    // Guardar el índice del elemento a editar
+    $('#editModal').data('index', index);
+
+    // Mostrar la ventana modal
+    $('#editModal').modal('show');
 }
 
 function saveDataToFile() {
@@ -242,3 +236,53 @@ function saveDataToFile() {
 // Asignar la función saveDataToFile() al botón correspondiente
 let saveButton = document.getElementById('saveButton');
 saveButton.addEventListener('click', saveDataToFile);
+
+
+// Función para mostrar la ventana modal de edición de datos
+function showEditDataModal() {
+    var editDataModal = new bootstrap.Modal(document.getElementById('editDataModal'));
+    editDataModal.show();
+}
+
+// Función para guardar los cambios en la edición de datos
+function saveEditedData() {
+    let index = $('#editModal').data('index');
+    let listPeople = JSON.parse(localStorage.getItem('listPeople'));
+
+    // Obtener los valores actualizados desde el formulario modal
+    let newLlamada = $('#editLlamada').val();
+    let newPhone = $('#editPhone').val();
+    let newName = $('#editName').val();
+    let newCC = $('#editCC').val();
+    let newContrato = $('#editContrato').val();
+    let newEmail = $('#editEmail').val();
+    let newDireccion = $('#editDireccion').val();
+    let newPedido = $('#editPedido').val();
+    let newSolucion = $('#editSolucion').val();
+    let newResultado = $('#editResultado').val();
+    let newDescripcion = $('#editDescripcion').val();
+    // Obtener los demás valores de los campos según sea necesario
+
+    // Actualizar los datos en el localStorage
+    listPeople[index].llamada = newLlamada;
+    listPeople[index].telefono = newPhone;
+    listPeople[index].nombre = newName;
+    listPeople[index].cc = newCC;
+    listPeople[index].contrato = newContrato;
+    listPeople[index].email = newEmail;
+    listPeople[index].direccion = newDireccion;
+    listPeople[index].pedido = newPedido;
+    listPeople[index].solucion = newSolucion;
+    listPeople[index].resultado = newResultado;
+    listPeople[index].descripcion = newDescripcion;
+     // Actualizar los demás campos de la misma manera
+
+    localStorage.setItem('listPeople', JSON.stringify(listPeople));
+
+    // Cerrar la ventana modal
+    var editDataModal = new bootstrap.Modal(document.getElementById('editDataModal'));
+    editDataModal.hide();
+
+    // Actualizar la tabla después de editar los datos
+    loadTable();
+}
