@@ -207,6 +207,7 @@ function saveDataToFile() {
     // Construir el contenido del archivo de texto
     let textContent = "Información Guardada:\n\n";
     listPeople.forEach(function (person) {
+        textContent += "ID: " + person.id + "\n";
         textContent += "Nombre: " + person.nombre + "\n";
         textContent += "Teléfono: " + person.telefono + "\n";
         textContent += "Cédula: " + person.cedula + "\n";
@@ -216,7 +217,7 @@ function saveDataToFile() {
         textContent += "OE/Pedido: " + person.pedido + "\n";
         textContent += "Radicado: " + person.radicado + "\n";
         textContent += "Solución: " + person.solucion + "\n";
-        textContent += "Resultado: " + person.resultado + "\n";
+        textContent += "Resultado: " + person.resultado + "\n\n";
         textContent += "Descripción: " + person.descripcion + "\n\n";
     });
 
