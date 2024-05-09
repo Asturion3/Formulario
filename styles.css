@@ -7,25 +7,25 @@ body{
 }
 #InputDescripcion {
     width: 200px;
-    height: 100px;
+    height: 150px;
 }
 #InputLlamada {
     width: 150px;
-    height: 100px;
+    height: 120px;
 }
 #InputPhone {
     width: 150px;
-    height: 100px;
+    height: 120px;
 }
 #InputCC {
     width: 150px;
-    height: 100px;
+    height: 120px;
 }
 #InputContrato {
     width: 150px;
-    height: 100px;
+    height: 120px;
 }
 #InputName {
     width: 150px;
-    height: 100px;
+    height: 120px;
 }
