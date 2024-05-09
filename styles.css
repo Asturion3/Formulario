@@ -6,26 +6,26 @@ body{
     display:none;
 }
 #InputDescripcion {
-    width: 200px;
-    height: 150px;
+    width: 250px;
+    height: 100px;
 }
 #InputLlamada {
-    width: 150px;
-    height: 120px;
+    width: 100px;
+    height: 80px;
 }
 #InputPhone {
-    width: 150px;
-    height: 120px;
+    width: 100px;
+    height: 80px;
 }
 #InputCC {
-    width: 150px;
-    height: 120px;
+    width: 100px;
+    height: 80px;
 }
 #InputContrato {
-    width: 150px;
-    height: 120px;
+    width: 100px;
+    height: 80px;
 }
 #InputName {
-    width: 150px;
-    height: 120px;
+    width: 100px;
+    height: 80px;
 }
