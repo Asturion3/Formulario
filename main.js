@@ -1,6 +1,6 @@
 document.querySelectorAll('.copyButton').forEach(function (button) {
       button.addEventListener('click', function() {
-        var inputField = this.parentNode.querySelector('input');
+        var inputField = this.parentNode.querySelector('input','textarea');
         if (inputField) {
           navigator.clipboard.writeText(inputField.value)
             .then(function() {
@@ -15,7 +15,7 @@ document.querySelectorAll('.copyButton').forEach(function (button) {
 
     document.querySelectorAll('.pasteButton').forEach(function(button) {
       button.addEventListener('click', function() {
-        var inputField = this.parentNode.querySelector('input');
+        var inputField = this.parentNode.querySelector('input','textarea');
         if (inputField) {
           navigator.clipboard.readText()
             .then(function(clipboardText) {
