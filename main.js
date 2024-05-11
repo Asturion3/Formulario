@@ -53,6 +53,7 @@ document.querySelectorAll('.pasteButton').forEach(function(button) {
 
 
 
+
 // Función para leer los datos almacenados
 function ReadData() {
     let listPeople;
