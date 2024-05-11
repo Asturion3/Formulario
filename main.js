@@ -32,23 +32,28 @@
 //Funcion para copiar y pegar de textarea
 document.querySelectorAll('.copyButton').forEach(function (button) {
     button.addEventListener('click', function() {
-        var inputField = this.parentNode.querySelector('input, textarea');
-        if (inputField) {
-            inputField.select();
+        var textarea = this.parentNode.querySelector('textarea');
+        if (textarea) {
+            textarea.select();
             document.execCommand("copy");
+            console.log('Contenido copiado al portapapeles: ' + textarea.value);
+            alert("Texto copiado al portapapeles.");
         }
     });
 });
 
 document.querySelectorAll('.pasteButton').forEach(function(button) {
     button.addEventListener('click', function() {
-        var inputField = this.parentNode.querySelector('input, textarea');
-        if (inputField) {
-            inputField.focus();
+        var textarea = this.parentNode.querySelector('textarea');
+        if (textarea) {
+            textarea.focus();
             document.execCommand("paste");
+            console.log('Contenido pegado del portapapeles: ' + textarea.value);
+            alert("Texto pegado desde el portapapeles.");
         }
     });
 });
+
 
 
 
