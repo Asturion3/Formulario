@@ -144,8 +144,8 @@ function AddData() {
         let solucion = document.getElementById('InputSolucion').value;
         let resultado = document.getElementById('InputResultado').value;
         let descripcion = document.getElementById('InputDescripcion').value;
-        let generatedNumbers = document.getElementById('generatedNumbers').value;
-        let colecteCheckbox = document.getElementById('colecteCheckbox').value;
+        let idrescate = document.getElementById('generatedNumbers').value;
+        let colecte = document.getElementById('colecteCheckbox').value;
         
         var listPeople;
         if (localStorage.getItem('listPeople') == null) {
@@ -154,7 +154,7 @@ function AddData() {
             listPeople = JSON.parse(localStorage.getItem("listPeople"));
         }
         // Verificar si al menos uno de los campos obligatorios está lleno
-    if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion) {
+    if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion || idrescate || colecte) {
         listPeople.push({
             id: id,
             nombre: nombre,
@@ -167,7 +167,9 @@ function AddData() {
             radicado: radicado,
             solucion: solucion,
             resultado: resultado,
-            descripcion: descripcion
+            descripcion: descripcion,
+            idrescate: idrescate,
+            colecte: colecte
         });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
