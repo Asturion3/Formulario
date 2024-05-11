@@ -272,8 +272,8 @@ function saveDataToFile() {
         textContent += "Solución: " + person.solucion + "\n";
         textContent += "Resultado: " + person.resultado + "\n\n";
         textContent += "Descripción: " + person.descripcion + "\n\n";
-        textContent += "generatedNumbers" + person.idrescate + "\n\n";
-        textContent += "colecteCheckbox" + person.colecte + "\n\n";
+        textContent += "IDRescate:" + person.idrescate + "\n\n";
+        textContent += "colecte:" + person.colecte + "\n\n";
     });
 
     // Crear un Blob con los datos y un enlace para descargarlo
