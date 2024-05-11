@@ -30,14 +30,31 @@
   //  });
 
 //Funcion para copiar y pegar de textarea
+function copyToClipboard(text) {
+    navigator.clipboard.writeText(text)
+        .then(function() {
+            console.log('Contenido copiado al portapapeles: ' + text);
+        })
+        .catch(function(error) {
+            console.error('Error al copiar al portapapeles: ', error);
+        });
+}
+
+function pasteFromClipboard(callback) {
+    navigator.clipboard.readText()
+        .then(function(clipboardText) {
+            callback(clipboardText);
+        })
+        .catch(function(error) {
+            console.error('Error al pegar desde el portapapeles: ', error);
+        });
+}
+
 document.querySelectorAll('.copyButton').forEach(function (button) {
     button.addEventListener('click', function() {
         var textarea = this.parentNode.querySelector('textarea');
         if (textarea) {
-            textarea.select();
-            document.execCommand("copy");
-            console.log('Contenido copiado al portapapeles: ' + textarea.value);
-            alert("Texto copiado al portapapeles.");
+            copyToClipboard(textarea.value);
         }
     });
 });
@@ -46,13 +63,14 @@ document.querySelectorAll('.pasteButton').forEach(function(button) {
     button.addEventListener('click', function() {
         var textarea = this.parentNode.querySelector('textarea');
         if (textarea) {
-            textarea.focus();
-            document.execCommand("paste");
-            console.log('Contenido pegado del portapapeles: ' + textarea.value);
-            alert("Texto pegado desde el portapapeles.");
+            pasteFromClipboard(function(clipboardText) {
+                textarea.value = clipboardText;
+                console.log('Contenido pegado del portapapeles: ' + clipboardText);
+            });
         }
     });
 });
+
 
 
 
