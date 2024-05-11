@@ -30,19 +30,37 @@
   //  });
 
 //Funcion para copiar y pegar de textarea
-function copyText(textAreaId) {
-        var textarea = document.getElementById(textAreaId);
-        textarea.select();
-        document.execCommand("copy");
-        alert("Texto copiado al portapapeles.");
+document.querySelectorAll('.copyButton').forEach(function (button) {
+  button.addEventListener('click', function() {
+    var inputField = this.parentNode.querySelector('input, textarea');
+    if (inputField) {
+      navigator.clipboard.writeText(inputField.value)
+        .then(function() {
+          console.log('Contenido copiado al portapapeles: ' + inputField.value);
+        })
+        .catch(function(error) {
+          console.error('Error al copiar al portapapeles: ', error);
+        });
     }
+  });
+});
 
-    function pasteText(textAreaId) {
-        var textarea = document.getElementById(textAreaId);
-        textarea.focus();
-        document.execCommand("paste");
-        alert("Texto pegado desde el portapapeles.");
+document.querySelectorAll('.pasteButton').forEach(function(button) {
+  button.addEventListener('click', function() {
+    var inputField = this.parentNode.querySelector('input, textarea');
+    if (inputField) {
+      navigator.clipboard.readText()
+        .then(function(clipboardText) {
+          inputField.value = clipboardText;
+          console.log('Contenido pegado del portapapeles: ' + clipboardText);
+        })
+        .catch(function(error) {
+          console.error('Error al pegar desde el portapapeles: ', error);
+        });
     }
+  });
+});
+
 
 
 // Función para leer los datos almacenados
