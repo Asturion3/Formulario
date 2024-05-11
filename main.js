@@ -31,35 +31,25 @@
 
 //Funcion para copiar y pegar de textarea
 document.querySelectorAll('.copyButton').forEach(function (button) {
-  button.addEventListener('click', function() {
-    var inputField = this.parentNode.querySelector('input, textarea');
-    if (inputField) {
-      navigator.clipboard.writeText(inputField.value)
-        .then(function() {
-          console.log('Contenido copiado al portapapeles: ' + inputField.value);
-        })
-        .catch(function(error) {
-          console.error('Error al copiar al portapapeles: ', error);
-        });
-    }
-  });
+    button.addEventListener('click', function() {
+        var inputField = this.parentNode.querySelector('input, textarea');
+        if (inputField) {
+            inputField.select();
+            document.execCommand("copy");
+        }
+    });
 });
 
 document.querySelectorAll('.pasteButton').forEach(function(button) {
-  button.addEventListener('click', function() {
-    var inputField = this.parentNode.querySelector('input, textarea');
-    if (inputField) {
-      navigator.clipboard.readText()
-        .then(function(clipboardText) {
-          inputField.value = clipboardText;
-          console.log('Contenido pegado del portapapeles: ' + clipboardText);
-        })
-        .catch(function(error) {
-          console.error('Error al pegar desde el portapapeles: ', error);
-        });
-    }
-  });
+    button.addEventListener('click', function() {
+        var inputField = this.parentNode.querySelector('input, textarea');
+        if (inputField) {
+            inputField.focus();
+            document.execCommand("paste");
+        }
+    });
 });
+
 
 
 
