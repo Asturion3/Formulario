@@ -5,6 +5,6 @@ body{
 #btnUpdate{
     display:none;
 }
-#InputResultado {
-    heigth: 200px;
+#InputDescripcion {
+    width:300px;
 }
