@@ -99,6 +99,8 @@ function ReadData() {
         html += "<th>Solución</th>"; // Agregamos el encabezado para el campo Solución
         html += "<th>Resultado</th>";
         html += "<th>Descripción</th>"; // Agregamos el encabezado para el campo Descripción
+        html += "<th>IDRescate</th>";
+        html += "<th>Colecte</th>";
         html += "<th>Acciones</th>";
         html += "</tr>";
     listPeople.forEach(function (element, index) {
@@ -116,6 +118,8 @@ function ReadData() {
         html += "<td>" + element.solucion + "</td>"; // Agregamos el valor del campo Solución
         html += "<td>" + element.resultado + "</td>";
         html += "<td>" + element.descripcion + "</td>"; // Agregamos el valor del campo Descripción
+        html += "<td>" + element.idrescate + "</td>"; 
+        html += "<td>" + element.colecte + "</td>"; 
         html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Eliminar Datos</button> <button onclick="editData(' + index + ')" class="btn btn-warning">Editar Datos</button></td>';
         html += "</tr>";
 
@@ -140,6 +144,8 @@ function AddData() {
         let solucion = document.getElementById('InputSolucion').value;
         let resultado = document.getElementById('InputResultado').value;
         let descripcion = document.getElementById('InputDescripcion').value;
+        let generatedNumbers = document.getElementById('generatedNumbers').value;
+        let colecteCheckbox = document.getElementById('colecteCheckbox').value;
         
         var listPeople;
         if (localStorage.getItem('listPeople') == null) {
@@ -181,6 +187,7 @@ function AddData() {
         document.getElementById('InputSolucion').value = '';
         document.getElementById('InputResultado').value = '';
         document.getElementById('InputDescripcion').value = '';
+        document.getElementById('generatedNumbers').value = '';
     } else {
         alert("Por favor complete al menos uno de los campos obligatorios.");
     }
@@ -263,6 +270,8 @@ function saveDataToFile() {
         textContent += "Solución: " + person.solucion + "\n";
         textContent += "Resultado: " + person.resultado + "\n\n";
         textContent += "Descripción: " + person.descripcion + "\n\n";
+        textContent += "generatedNumbers" + person.idrescate + "\n\n";
+        textContent += "colecteCheckbox" + person.colecte + "\n\n";
     });
 
     // Crear un Blob con los datos y un enlace para descargarlo
