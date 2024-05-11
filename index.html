@@ -97,7 +97,11 @@
   <button class="btn btn-outline-secondary pasteButton" type="button">PASTE</button>
   <label class="form-label">DESCRIPCION</label>
           </div>
-          
+          <div class="mb-1">
+    <textarea class="form-control-sm" id="generatedNumbers" readonly></textarea>
+    <button class="btn btn-outline-secondary generateButton" type="button">GENERAR</button>
+    <button class="btn btn-outline-secondary copyButton" type="button">COPIAR</button>
+          </div>
             
   <button type="submit" class="btn btn-outline-light" id="btnAdd" onclick="AddData()">GUARDAR</button>
   <button onclick="saveDataToFile()" class="btn btn-outline-light">Guardar en Archivo de Texto</button>
