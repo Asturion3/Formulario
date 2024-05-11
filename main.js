@@ -1,33 +1,30 @@
-//document.querySelectorAll('.copyButton').forEach(function (button) {
-     // button.addEventListener('click', function() {
-     //   var inputField = this.parentNode.querySelector('input','textarea');
-      //  if (inputField) {
-       //   navigator.clipboard.writeText(inputField.value)
-       //     .then(function() {
-      //        console.log('Contenido copiado al portapapeles: ' + inputField.value);
-       //     })
-      //      .catch(function(error) {
-       //       console.error('Error al copiar al portapapeles: ', error);
-      //      });
-   //     }
- //     })
-//    });
+// Funcion de generar numeros de 20 digitos
+function generateNumbers() {
+        var currentDate = new Date();
+        var timestamp = currentDate.getFullYear().toString() + padNumber(currentDate.getMonth() + 1) + padNumber(currentDate.getDate()) + padNumber(currentDate.getHours()) + padNumber(currentDate.getMinutes()) + padNumber(currentDate.getSeconds());
+        var generatedNumbers = "0000" + timestamp + "000000000000000000";
+        return generatedNumbers.substring(0, 20);
+    }
 
-//    document.querySelectorAll('.pasteButton').forEach(function(button) {
-  //    button.addEventListener('click', function() {
-     //   var inputField = this.parentNode.querySelector('input','textarea');
-     //   if (inputField) {
-     //     navigator.clipboard.readText()
-      //      .then(function(clipboardText) {
-       //       inputField.value = clipboardText;
-       //       console.log('Contenido pegado del portapapeles: ' + clipboardText);
-       //     })
-        //    .catch(function(error) {
-        //      console.error('Error al pegar desde el portapapeles: ', error);
-        //    });
-     //   }
-   //   })
-  //  });
+    function padNumber(number) {
+        return number.toString().padStart(2, '0');
+    }
+
+    document.querySelector('.generateButton').addEventListener('click', function() {
+        var generatedNumbers = generateNumbers();
+        document.getElementById('generatedNumbers').value = generatedNumbers;
+    });
+
+    document.querySelector('.copyButton').addEventListener('click', function() {
+        var generatedNumbers = document.getElementById('generatedNumbers').value;
+        navigator.clipboard.writeText(generatedNumbers)
+            .then(function() {
+                console.log('Contenido copiado al portapapeles: ' + generatedNumbers);
+            })
+            .catch(function(error) {
+                console.error('Error al copiar al portapapeles: ', error);
+            });
+    });
 
 //Funcion para copiar y pegar de textarea
 function copyToClipboard(text) {
