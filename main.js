@@ -3,18 +3,8 @@ let counter = 0;
 
 document.getElementById('btnAdd').addEventListener('click', function() {
     counter++;
-    updateCounter();
-});
-
-// Función para actualizar el contador
-function updateCounter() {
     document.getElementById('counter').textContent = "Guardados: " + counter;
-}
-// Al cargar la página, leer los datos almacenados
-window.onload = function() {
-    ReadData();
-    updateCounter();
-};
+});
 
 // Funcion de generar numeros de 20 digitos
 function generateNumbers() {
@@ -87,7 +77,12 @@ document.querySelectorAll('.pasteButton').forEach(function(button) {
 });
 
 
-// Función para leer los datos almacenados
+
+
+
+
+
+// FunciÃ³n para leer los datos almacenados
 function ReadData() {
     let listPeople;
     if (localStorage.getItem('listPeople') == null) {
@@ -96,22 +91,22 @@ function ReadData() {
         listPeople = JSON.parse(localStorage.getItem("listPeople"));
     }
 
-    // Dentro de la función ReadData(), donde se construye el HTML para agregar al principio del formulario
+    // Dentro de la funciÃ³n ReadData(), donde se construye el HTML para agregar al principio del formulario
     // Estructura HTML para la tabla
     var html = "";
         html += "<tr>";
         html += "<th>ID</th>"; // Agregamos el encabezado para el campo ID
         html += "<th>Nombre</th>";
-        html += "<th>Teléfono</th>";
-        html += "<th>Cédula</th>"; // Agregamos el encabezado para el campo Cédula
+        html += "<th>TelÃ©fono</th>";
+        html += "<th>CÃ©dula</th>"; // Agregamos el encabezado para el campo CÃ©dula
         html += "<th>Contrato</th>"; // Agregamos el encabezado para el campo Contrato
         html += "<th>Email</th>"; // Agregamos el encabezado para el campo Email
-        html += "<th>Dirección</th>"; // Agregamos el encabezado para el campo Dirección
+        html += "<th>DirecciÃ³n</th>"; // Agregamos el encabezado para el campo DirecciÃ³n
         html += "<th>OE/Pedido</th>"; // Agregamos el encabezado para el campo OE/Pedido
         html += "<th>Radicado</th>"; // Agregamos el encabezado para el campo Radicado
-        html += "<th>Solución</th>"; // Agregamos el encabezado para el campo Solución
+        html += "<th>SoluciÃ³n</th>"; // Agregamos el encabezado para el campo SoluciÃ³n
         html += "<th>Resultado</th>";
-        html += "<th>Descripción</th>"; // Agregamos el encabezado para el campo Descripción
+        html += "<th>DescripciÃ³n</th>"; // Agregamos el encabezado para el campo DescripciÃ³n
         html += "<th>IDRescate</th>";
         html += "<th>Colecte</th>";
         html += "<th>Acciones</th>";
@@ -122,15 +117,15 @@ function ReadData() {
         html += "<td>" + element.id + "</td>"; // Agregamos el valor del campo ID
         html += "<td>" + element.nombre + "</td>";
         html += "<td>" + element.telefono + "</td>";
-        html += "<td>" + element.cedula + "</td>"; // Agregamos el valor del campo Cédula
+        html += "<td>" + element.cedula + "</td>"; // Agregamos el valor del campo CÃ©dula
         html += "<td>" + element.contrato + "</td>"; // Agregamos el valor del campo Contrato
         html += "<td>" + element.email + "</td>"; // Agregamos el valor del campo Email
-        html += "<td>" + element.direccion + "</td>"; // Agregamos el valor del campo Dirección
+        html += "<td>" + element.direccion + "</td>"; // Agregamos el valor del campo DirecciÃ³n
         html += "<td>" + element.pedido + "</td>"; // Agregamos el valor del campo OE/Pedido
         html += "<td>" + element.radicado + "</td>"; // Agregamos el valor del campo Radicado
-        html += "<td>" + element.solucion + "</td>"; // Agregamos el valor del campo Solución
+        html += "<td>" + element.solucion + "</td>"; // Agregamos el valor del campo SoluciÃ³n
         html += "<td>" + element.resultado + "</td>";
-        html += "<td>" + element.descripcion + "</td>"; // Agregamos el valor del campo Descripción
+        html += "<td>" + element.descripcion + "</td>"; // Agregamos el valor del campo DescripciÃ³n
         html += "<td>" + element.idrescate + "</td>"; 
         html += "<td>" + element.colecte + "</td>"; 
         html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Eliminar Datos</button> <button onclick="editData(' + index + ')" class="btn btn-warning">Editar Datos</button></td>';
@@ -140,10 +135,10 @@ function ReadData() {
     document.querySelector('#tableData').innerHTML = html;
 }
 
-// Al cargar la página, leer los datos almacenados
+// Al cargar la pÃ¡gina, leer los datos almacenados
 document.onload = ReadData();
 
-// Función para agregar datos
+// FunciÃ³n para agregar datos
 function AddData() {
     let id = document.getElementById('InputLlamada').value;
     let telefono = document.getElementById('InputPhone').value;
@@ -166,7 +161,7 @@ function AddData() {
     } else {
         listPeople = JSON.parse(localStorage.getItem("listPeople"));
     }
-    // Verificar si al menos uno de los campos obligatorios está lleno
+    // Verificar si al menos uno de los campos obligatorios estÃ¡ lleno
     if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion || idrescate || colecte) {
         listPeople.push({
             id: id,
@@ -186,7 +181,7 @@ function AddData() {
                 });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
-        // Limpiar los campos después de agregar datos
+        // Limpiar los campos despuÃ©s de agregar datos
         document.getElementById('InputLlamada').value = '';
         document.getElementById('InputPhone').value = '';
         document.getElementById('InputName').value = '';
@@ -201,10 +196,8 @@ function AddData() {
         document.getElementById('InputDescripcion').value = '';
         document.getElementById('generatedNumbers').value = '';
 
-        // Incrementar el contador
-        counter++;
-        updateCounter();
-    }
+        // Incrementar contador
+        incrementCounter();
 
         // Leer y mostrar los datos
         ReadData();
@@ -213,21 +206,17 @@ function AddData() {
     }
 }
    
-// Función para eliminar datos
+// FunciÃ³n para eliminar datos
 function deleteData(index) {
-    if (confirm("¿Estás seguro de que quieres borrar este elemento?")) {
+    if (confirm("Â¿EstÃ¡s seguro de que quieres borrar este elemento?")) {
         let listPeople = JSON.parse(localStorage.getItem('listPeople'));
         listPeople.splice(index, 1);
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
-        ReadData(); // Actualizar la tabla después de eliminar los datos
-   
-    // Reducir el contador
-    counter--;
-    updateCounter();
+        ReadData(); // Actualizar la tabla despuÃ©s de eliminar los datos
     }
 }
 
-// Función para cargar los datos en la tabla
+// FunciÃ³n para cargar los datos en la tabla
 function loadTable() {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
     let tableBody = $('#tablaEjemplo tbody');
@@ -238,7 +227,7 @@ function loadTable() {
             let row = `<tr>
                 <td>${person.nombre}</td>
                 <td>${person.telefono}</td>
-                <!-- Agrega aquí las celdas de las otras columnas -->
+                <!-- Agrega aquÃ­ las celdas de las otras columnas -->
                 <td><button class="btn btn-primary" onclick="editData(${index})">Editar</button></td>
             </tr>`;
             tableBody.append(row);
@@ -246,7 +235,7 @@ function loadTable() {
     }
 }
 
-// Función para editar datos
+// FunciÃ³n para editar datos
 function editData(index) {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
     let person = listPeople[index];
@@ -254,9 +243,9 @@ function editData(index) {
     // Rellenar los campos de la ventana modal con los datos existentes
     $('#nombre').val(person.nombre);
     $('#telefono').val(person.telefono);
-    // Rellena los demás campos de la misma manera
+    // Rellena los demÃ¡s campos de la misma manera
 
-    // Guardar el índice del elemento a editar
+    // Guardar el Ã­ndice del elemento a editar
     $('#editModal').data('index', index);
 
     // Mostrar la ventana modal
@@ -276,24 +265,24 @@ function saveDataToFile() {
     let currentDate = new Date();
     let dateTimeString = currentDate.toLocaleString().replace(/[/\\?%*:|"<>]/g, '-'); // Reemplazar caracteres no permitidos en nombres de archivos
 
-    // Construir el título del archivo con la fecha y hora actual
+    // Construir el tÃ­tulo del archivo con la fecha y hora actual
     let fileName = 'llamadas' + dateTimeString + '.txt';
 
     // Construir el contenido del archivo de texto
-    let textContent = "Información Guardada:\n\n";
+    let textContent = "InformaciÃ³n Guardada:\n\n";
     listPeople.forEach(function (person) {
         textContent += "ID: " + person.id + "\n";
         textContent += "Nombre: " + person.nombre + "\n";
-        textContent += "Teléfono: " + person.telefono + "\n";
-        textContent += "Cédula: " + person.cedula + "\n";
+        textContent += "TelÃ©fono: " + person.telefono + "\n";
+        textContent += "CÃ©dula: " + person.cedula + "\n";
         textContent += "Contrato: " + person.contrato + "\n";
         textContent += "Email: " + person.email + "\n";
-        textContent += "Dirección: " + person.direccion + "\n";
+        textContent += "DirecciÃ³n: " + person.direccion + "\n";
         textContent += "OE/Pedido: " + person.pedido + "\n";
         textContent += "Radicado: " + person.radicado + "\n";
-        textContent += "Solución: " + person.solucion + "\n";
+        textContent += "SoluciÃ³n: " + person.solucion + "\n";
         textContent += "Resultado: " + person.resultado + "\n\n";
-        textContent += "Descripción: " + person.descripcion + "\n\n";
+        textContent += "DescripciÃ³n: " + person.descripcion + "\n\n";
         textContent += "IDRescate:" + person.idrescate + "\n\n";
         textContent += "colecte:" + person.colecte + "\n\n";
     });
@@ -311,18 +300,18 @@ function saveDataToFile() {
     document.body.removeChild(downloadLink);
 }
 
-// Asignar la función saveDataToFile() al botón correspondiente
+// Asignar la funciÃ³n saveDataToFile() al botÃ³n correspondiente
 let saveButton = document.getElementById('saveButton');
 saveButton.addEventListener('click', saveDataToFile);
 
 
-// Función para mostrar la ventana modal de edición de datos
+// FunciÃ³n para mostrar la ventana modal de ediciÃ³n de datos
 function showEditDataModal() {
     var editDataModal = new bootstrap.Modal(document.getElementById('editDataModal'));
     editDataModal.show();
 }
 
-// Función para guardar los cambios en la edición de datos
+// FunciÃ³n para guardar los cambios en la ediciÃ³n de datos
 function saveEditedData() {
     let index = $('#editModal').data('index');
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
@@ -339,7 +328,7 @@ function saveEditedData() {
     let newSolucion = $('#editSolucion').val();
     let newResultado = $('#editResultado').val();
     let newDescripcion = $('#editDescripcion').val();
-    // Obtener los demás valores de los campos según sea necesario
+    // Obtener los demÃ¡s valores de los campos segÃºn sea necesario
 
     // Actualizar los datos en el localStorage
     listPeople[index].llamada = newLlamada;
@@ -353,7 +342,7 @@ function saveEditedData() {
     listPeople[index].solucion = newSolucion;
     listPeople[index].resultado = newResultado;
     listPeople[index].descripcion = newDescripcion;
-     // Actualizar los demás campos de la misma manera
+     // Actualizar los demÃ¡s campos de la misma manera
 
     localStorage.setItem('listPeople', JSON.stringify(listPeople));
 
@@ -361,6 +350,6 @@ function saveEditedData() {
     var editDataModal = new bootstrap.Modal(document.getElementById('editDataModal'));
     editDataModal.hide();
 
-    // Actualizar la tabla después de editar los datos
+    // Actualizar la tabla despuÃ©s de editar los datos
     loadTable();
-}
+            }
