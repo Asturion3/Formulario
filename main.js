@@ -3,8 +3,18 @@ let counter = 0;
 
 document.getElementById('btnAdd').addEventListener('click', function() {
     counter++;
-    document.getElementById('counter').textContent = "Guardados: " + counter;
+    updateCounter();
 });
+
+// Función para actualizar el contador
+function updateCounter() {
+    document.getElementById('counter').textContent = "Guardados: " + counter;
+}
+// Al cargar la página, leer los datos almacenados
+document.onload = function() {
+    ReadData();
+    updateCounter();
+};
 
 // Funcion de generar numeros de 20 digitos
 function generateNumbers() {
@@ -75,11 +85,6 @@ document.querySelectorAll('.pasteButton').forEach(function(button) {
         }
     });
 });
-
-
-
-
-
 
 
 // Función para leer los datos almacenados
@@ -196,8 +201,10 @@ function AddData() {
         document.getElementById('InputDescripcion').value = '';
         document.getElementById('generatedNumbers').value = '';
 
-        // Incrementar contador
-        incrementCounter();
+        // Incrementar el contador
+        counter++;
+        updateCounter();
+    }
 
         // Leer y mostrar los datos
         ReadData();
@@ -213,6 +220,10 @@ function deleteData(index) {
         listPeople.splice(index, 1);
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         ReadData(); // Actualizar la tabla después de eliminar los datos
+   
+    // Reducir el contador
+    counter--;
+    updateCounter();
     }
 }
 
