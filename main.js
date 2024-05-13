@@ -11,7 +11,7 @@ function updateCounter() {
     document.getElementById('counter').textContent = "Guardados: " + counter;
 }
 // Al cargar la página, leer los datos almacenados
-document.onload = function() {
+window.onload = function() {
     ReadData();
     updateCounter();
 };
