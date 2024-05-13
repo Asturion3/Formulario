@@ -133,7 +133,6 @@ function ReadData() {
 // Al cargar la página, leer los datos almacenados
 document.onload = ReadData();
 
-//Funcion counter 
 let savedCount = 0;
 
 document.querySelector('.btnAdd').addEventListener('click', function() {
@@ -142,28 +141,28 @@ document.querySelector('.btnAdd').addEventListener('click', function() {
 
 // Función para agregar datos
 function AddData() {
-        let id = document.getElementById('InputLlamada').value;
-        let telefono = document.getElementById('InputPhone').value;
-        let nombre = document.getElementById('InputName').value;
-        let cedula = document.getElementById('InputCC').value;
-        let contrato = document.getElementById('InputContrato').value;
-        let email = document.getElementById('InputEmail').value;
-        let direccion = document.getElementById('InputDireccion').value;
-        let pedido = document.getElementById('InputPedido').value;
-        let radicado = document.getElementById('InputRadicado').value;
-        let solucion = document.getElementById('InputSolucion').value;
-        let resultado = document.getElementById('InputResultado').value;
-        let descripcion = document.getElementById('InputDescripcion').value;
-        let idrescate = document.getElementById('generatedNumbers').value;
-        let colecte = document.getElementById('colecteCheckbox').value;
-        
-        var listPeople;
-        if (localStorage.getItem('listPeople') == null) {
-            listPeople = [];
-        } else {
-            listPeople = JSON.parse(localStorage.getItem("listPeople"));
-        }
-        // Verificar si al menos uno de los campos obligatorios está lleno
+    let id = document.getElementById('InputLlamada').value;
+    let telefono = document.getElementById('InputPhone').value;
+    let nombre = document.getElementById('InputName').value;
+    let cedula = document.getElementById('InputCC').value;
+    let contrato = document.getElementById('InputContrato').value;
+    let email = document.getElementById('InputEmail').value;
+    let direccion = document.getElementById('InputDireccion').value;
+    let pedido = document.getElementById('InputPedido').value;
+    let radicado = document.getElementById('InputRadicado').value;
+    let solucion = document.getElementById('InputSolucion').value;
+    let resultado = document.getElementById('InputResultado').value;
+    let descripcion = document.getElementById('InputDescripcion').value;
+    let idrescate = document.getElementById('generatedNumbers').value;
+    let colecte = document.getElementById('colecteCheckbox').value;
+    
+    var listPeople;
+    if (localStorage.getItem('listPeople') == null) {
+        listPeople = [];
+    } else {
+        listPeople = JSON.parse(localStorage.getItem("listPeople"));
+    }
+    // Verificar si al menos uno de los campos obligatorios está lleno
     if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion || idrescate || colecte) {
         listPeople.push({
             id: id,
@@ -183,13 +182,19 @@ function AddData() {
         });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
+        
+        // Incrementar contador
+        incrementCounter();
+    }
+}
 
-//Funcion counter 2da parte
-        function incrementCounter() {
+//Función counter
+function incrementCounter() {
     savedCount++;
     document.getElementById('counter').textContent = "Guardados: " + savedCount;
-        }
-        
+}
+
+            
          ReadData();
 
         // Limpiar los campos después de agregar datos
