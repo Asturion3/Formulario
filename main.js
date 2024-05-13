@@ -133,12 +133,6 @@ function ReadData() {
 // Al cargar la página, leer los datos almacenados
 document.onload = ReadData();
 
-let savedCount = 0;
-
-document.querySelector('.btnAdd').addEventListener('click', function() {
-    incrementCounter();
-});
-
 // Función para agregar datos
 function AddData() {
     let id = document.getElementById('InputLlamada').value;
@@ -193,6 +187,11 @@ function incrementCounter() {
     savedCount++;
     document.getElementById('counter').textContent = "Guardados: " + savedCount;
 }
+let savedCount = 0;
+
+document.querySelector('.btnAdd').addEventListener('click', function() {
+    incrementCounter();
+});
 
             
          ReadData();
