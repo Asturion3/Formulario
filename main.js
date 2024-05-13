@@ -1,6 +1,4 @@
 
-
-
 // Funcion de generar numeros de 20 digitos
 function generateNumbers() {
         var currentDate = new Date();
@@ -176,23 +174,6 @@ function AddData() {
         });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
-        
-        // Incrementar contador
-        incrementCounter();
-    }
-}
-
-//Función counter
-function incrementCounter() {
-    savedCount++;
-    document.getElementById('counter').textContent = "Guardados: " + savedCount;
-}
-let savedCount = 0;
-
-document.querySelector('.btnAdd').addEventListener('click', function() {
-    incrementCounter();
-});
-
             
          ReadData();
 
