@@ -1,7 +1,7 @@
 //Funcion para agregar numeros al contador 
 let savedCount = 0;
 
-document.querySelector('.AddData()').addEventListener('click', function() {
+document.querySelector('.savedCount').addEventListener('click', function AddData() {
     // Incrementar el contador
     savedCount++;
     // Actualizar el texto del contador
