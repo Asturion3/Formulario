@@ -136,7 +136,7 @@ document.onload = ReadData();
 //Funcion counter 
 let savedCount = 0;
 
-document.querySelector('.saveButton').addEventListener('click', function() {
+document.querySelector('.btnAdd').addEventListener('click', function() {
     incrementCounter();
 });
 
