@@ -171,11 +171,9 @@ function AddData() {
             descripcion: descripcion,
             idrescate: idrescate,
             colecte: colecte
-        });
+                });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
-    } 
-ReadData();
         // Limpiar los campos después de agregar datos
         document.getElementById('InputLlamada').value = '';
         document.getElementById('InputPhone').value = '';
@@ -190,11 +188,17 @@ ReadData();
         document.getElementById('InputResultado').value = '';
         document.getElementById('InputDescripcion').value = '';
         document.getElementById('generatedNumbers').value = '';
+
+        // Incrementar contador
+        incrementCounter();
+
+        // Leer y mostrar los datos
+        ReadData();
     } else {
         alert("Por favor complete al menos uno de los campos obligatorios.");
     }
 }
-
+   
 // Función para eliminar datos
 function deleteData(index) {
     if (confirm("¿Estás seguro de que quieres borrar este elemento?")) {
@@ -255,7 +259,7 @@ function saveDataToFile() {
     let dateTimeString = currentDate.toLocaleString().replace(/[/\\?%*:|"<>]/g, '-'); // Reemplazar caracteres no permitidos en nombres de archivos
 
     // Construir el título del archivo con la fecha y hora actual
-    let fileName = 'datos_guardados_' + dateTimeString + '.txt';
+    let fileName = 'llamadas' + dateTimeString + '.txt';
 
     // Construir el contenido del archivo de texto
     let textContent = "Información Guardada:\n\n";
