@@ -76,7 +76,7 @@ document.querySelectorAll('.pasteButton').forEach(function(button) {
 
 
 
-// FunciÃƒÂ³n para leer los datos almacenados
+// Funcion para leer los datos almacenados
 function ReadData() {
     let listPeople;
     if (localStorage.getItem('listPeople') == null) {
@@ -85,22 +85,22 @@ function ReadData() {
         listPeople = JSON.parse(localStorage.getItem("listPeople"));
     }
 
-    // Dentro de la funciÃƒÂ³n ReadData(), donde se construye el HTML para agregar al principio del formulario
+    // Dentro de la Funcion ReadData(), donde se construye el HTML para agregar al principio del formulario
     // Estructura HTML para la tabla
     var html = "";
         html += "<tr>";
         html += "<th>ID</th>"; // Agregamos el encabezado para el campo ID
         html += "<th>Nombre</th>";
         html += "<th>TelÃƒÂ©fono</th>";
-        html += "<th>CÃƒÂ©dula</th>"; // Agregamos el encabezado para el campo CÃƒÂ©dula
+        html += "<th>CÃƒÂ©dula</th>"; // Agregamos el encabezado para el campo Cedula
         html += "<th>Contrato</th>"; // Agregamos el encabezado para el campo Contrato
         html += "<th>Email</th>"; // Agregamos el encabezado para el campo Email
-        html += "<th>DirecciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo DirecciÃƒÂ³n
+        html += "<th>DirecciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo Direccion
         html += "<th>OE/Pedido</th>"; // Agregamos el encabezado para el campo OE/Pedido
         html += "<th>Radicado</th>"; // Agregamos el encabezado para el campo Radicado
-        html += "<th>SoluciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo SoluciÃƒÂ³n
+        html += "<th>SoluciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo Solucion
         html += "<th>Resultado</th>";
-        html += "<th>DescripciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo DescripciÃƒÂ³n
+        html += "<th>DescripciÃƒÂ³n</th>"; // Agregamos el encabezado para el campo Descripcion
         html += "<th>IDRescate</th>";
         html += "<th>Colecte</th>";
         html += "<th>Acciones</th>";
@@ -111,15 +111,15 @@ function ReadData() {
         html += "<td>" + element.id + "</td>"; // Agregamos el valor del campo ID
         html += "<td>" + element.nombre + "</td>";
         html += "<td>" + element.telefono + "</td>";
-        html += "<td>" + element.cedula + "</td>"; // Agregamos el valor del campo CÃƒÂ©dula
+        html += "<td>" + element.cedula + "</td>"; // Agregamos el valor del campo cedula
         html += "<td>" + element.contrato + "</td>"; // Agregamos el valor del campo Contrato
         html += "<td>" + element.email + "</td>"; // Agregamos el valor del campo Email
-        html += "<td>" + element.direccion + "</td>"; // Agregamos el valor del campo DirecciÃƒÂ³n
+        html += "<td>" + element.direccion + "</td>"; // Agregamos el valor del campo Direccion
         html += "<td>" + element.pedido + "</td>"; // Agregamos el valor del campo OE/Pedido
         html += "<td>" + element.radicado + "</td>"; // Agregamos el valor del campo Radicado
-        html += "<td>" + element.solucion + "</td>"; // Agregamos el valor del campo SoluciÃƒÂ³n
+        html += "<td>" + element.solucion + "</td>"; // Agregamos el valor del campo Solucion
         html += "<td>" + element.resultado + "</td>";
-        html += "<td>" + element.descripcion + "</td>"; // Agregamos el valor del campo DescripciÃƒÂ³n
+        html += "<td>" + element.descripcion + "</td>"; // Agregamos el valor del campo Descripcion
         html += "<td>" + element.idrescate + "</td>"; 
         html += "<td>" + element.colecte + "</td>"; 
         html += '<td><button onclick="deleteData(' + index + ')" class="btn btn-danger">Eliminar Datos</button> <button onclick="editData(' + index + ')" class="btn btn-warning">Editar Datos</button></td>';
@@ -129,10 +129,10 @@ function ReadData() {
     document.querySelector('#tableData').innerHTML = html;
 }
 
-// Al cargar la pÃƒÂ¡gina, leer los datos almacenados
+// Al cargar la pagina, leer los datos almacenados
 document.onload = ReadData();
 
-// FunciÃƒÂ³n para agregar datos
+// Funcion para agregar datos
 function AddData() {
     let id = document.getElementById('InputLlamada').value;
     let telefono = document.getElementById('InputPhone').value;
@@ -155,7 +155,7 @@ function AddData() {
     } else {
         listPeople = JSON.parse(localStorage.getItem("listPeople"));
     }
-    // Verificar si al menos uno de los campos obligatorios estÃƒÂ¡ lleno
+    // Verificar si al menos uno de los campos obligatorios estan llenos
     if (id || telefono || nombre || cedula || contrato || email || direccion || pedido || radicado || solucion || resultado || descripcion || idrescate || colecte) {
         listPeople.push({
             id: id,
@@ -175,7 +175,7 @@ function AddData() {
                 });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
-        // Limpiar los campos despuÃƒÂ©s de agregar datos
+        // Limpiar los campos despues de agregar datos
         document.getElementById('InputLlamada').value = '';
         document.getElementById('InputPhone').value = '';
         document.getElementById('InputName').value = '';
@@ -197,17 +197,17 @@ function AddData() {
     }
 }
    
-// FunciÃƒÂ³n para eliminar datos
+// Funcion para eliminar datos
 function deleteData(index) {
-    if (confirm("Ã‚Â¿EstÃƒÂ¡s seguro de que quieres borrar este elemento?")) {
+    if (confirm("Estas seguro de que quieres borrar este elemento?")) {
         let listPeople = JSON.parse(localStorage.getItem('listPeople'));
         listPeople.splice(index, 1);
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
-        ReadData(); // Actualizar la tabla despuÃƒÂ©s de eliminar los datos
+        ReadData(); // Actualizar la tabla despues de eliminar los datos
     }
 }
 
-// FunciÃƒÂ³n para cargar los datos en la tabla
+// Funcion para cargar los datos en la tabla
 function loadTable() {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
     let tableBody = $('#tablaEjemplo tbody');
@@ -218,7 +218,7 @@ function loadTable() {
             let row = `<tr>
                 <td>${person.nombre}</td>
                 <td>${person.telefono}</td>
-                <!-- Agrega aquÃƒÂ­ las celdas de las otras columnas -->
+                <!-- Agrega aqui las celdas de las otras columnas -->
                 <td><button class="btn btn-primary" onclick="editData(${index})">Editar</button></td>
             </tr>`;
             tableBody.append(row);
@@ -226,7 +226,7 @@ function loadTable() {
     }
 }
 
-// FunciÃƒÂ³n para editar datos
+// Funcion para editar datos
 function editData(index) {
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
     let person = listPeople[index];
@@ -234,9 +234,9 @@ function editData(index) {
     // Rellenar los campos de la ventana modal con los datos existentes
     $('#nombre').val(person.nombre);
     $('#telefono').val(person.telefono);
-    // Rellena los demÃƒÂ¡s campos de la misma manera
+    // Rellena los demas campos de la misma manera
 
-    // Guardar el ÃƒÂ­ndice del elemento a editar
+    // Guardar el apendice del elemento a editar
     $('#editModal').data('index', index);
 
     // Mostrar la ventana modal
@@ -256,24 +256,24 @@ function saveDataToFile() {
     let currentDate = new Date();
     let dateTimeString = currentDate.toLocaleString().replace(/[/\\?%*:|"<>]/g, '-'); // Reemplazar caracteres no permitidos en nombres de archivos
 
-    // Construir el tÃƒÂ­tulo del archivo con la fecha y hora actual
+    // Construir el titulo del archivo con la fecha y hora actual
     let fileName = 'llamadas' + dateTimeString + '.txt';
 
     // Construir el contenido del archivo de texto
-    let textContent = "InformaciÃƒÂ³n Guardada:\n\n";
+    let textContent = "Informacion Guardada:\n\n";
     listPeople.forEach(function (person) {
         textContent += "ID: " + person.id + "\n";
         textContent += "Nombre: " + person.nombre + "\n";
-        textContent += "TelÃƒÂ©fono: " + person.telefono + "\n";
-        textContent += "CÃƒÂ©dula: " + person.cedula + "\n";
+        textContent += "Telefono: " + person.telefono + "\n";
+        textContent += "Cedula: " + person.cedula + "\n";
         textContent += "Contrato: " + person.contrato + "\n";
         textContent += "Email: " + person.email + "\n";
-        textContent += "DirecciÃƒÂ³n: " + person.direccion + "\n";
+        textContent += "Direccion: " + person.direccion + "\n";
         textContent += "OE/Pedido: " + person.pedido + "\n";
         textContent += "Radicado: " + person.radicado + "\n";
-        textContent += "SoluciÃƒÂ³n: " + person.solucion + "\n";
+        textContent += "Solucion: " + person.solucion + "\n";
         textContent += "Resultado: " + person.resultado + "\n\n";
-        textContent += "DescripciÃƒÂ³n: " + person.descripcion + "\n\n";
+        textContent += "Descripcion: " + person.descripcion + "\n\n";
         textContent += "IDRescate:" + person.idrescate + "\n\n";
         textContent += "colecte:" + person.colecte + "\n\n";
     });
@@ -291,18 +291,18 @@ function saveDataToFile() {
     document.body.removeChild(downloadLink);
 }
 
-// Asignar la funciÃƒÂ³n saveDataToFile() al botÃƒÂ³n correspondiente
+// Asignar la Funcion saveDataToFile() al boton correspondiente
 let saveButton = document.getElementById('saveButton');
 saveButton.addEventListener('click', saveDataToFile);
 
 
-// FunciÃƒÂ³n para mostrar la ventana modal de ediciÃƒÂ³n de datos
+// Funcion para mostrar la ventana modal de edicion de datos
 function showEditDataModal() {
     var editDataModal = new bootstrap.Modal(document.getElementById('editDataModal'));
     editDataModal.show();
 }
 
-// FunciÃƒÂ³n para guardar los cambios en la ediciÃƒÂ³n de datos
+// Funcion para guardar los cambios en la edicion de datos
 function saveEditedData() {
     let index = $('#editModal').data('index');
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
@@ -319,7 +319,7 @@ function saveEditedData() {
     let newSolucion = $('#editSolucion').val();
     let newResultado = $('#editResultado').val();
     let newDescripcion = $('#editDescripcion').val();
-    // Obtener los demÃƒÂ¡s valores de los campos segÃƒÂºn sea necesario
+    // Obtener los demas valores de los campos segun sea necesario
 
     // Actualizar los datos en el localStorage
     listPeople[index].llamada = newLlamada;
@@ -333,7 +333,7 @@ function saveEditedData() {
     listPeople[index].solucion = newSolucion;
     listPeople[index].resultado = newResultado;
     listPeople[index].descripcion = newDescripcion;
-     // Actualizar los demÃƒÂ¡s campos de la misma manera
+     // Actualizar los demas campos de la misma manera
 
     localStorage.setItem('listPeople', JSON.stringify(listPeople));
 
