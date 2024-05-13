@@ -1,12 +1,4 @@
-//Funcion para agregar numeros al contador 
-let savedCount = 0;
 
-document.querySelector('.savedCount').addEventListener('click', function AddData() {
-    // Incrementar el contador
-    savedCount++;
-    // Actualizar el texto del contador
-    document.getElementById('counter').textContent = "Guardados: " + savedCount;
-});
 
 
 // Funcion de generar numeros de 20 digitos
@@ -141,6 +133,13 @@ function ReadData() {
 // Al cargar la página, leer los datos almacenados
 document.onload = ReadData();
 
+//Funcion counter 
+let savedCount = 0;
+
+document.querySelector('.saveButton').addEventListener('click', function() {
+    incrementCounter();
+});
+
 // Función para agregar datos
 function AddData() {
         let id = document.getElementById('InputLlamada').value;
@@ -185,6 +184,12 @@ function AddData() {
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
 
+//Funcion counter 2da parte
+        function incrementCounter() {
+    savedCount++;
+    document.getElementById('counter').textContent = "Guardados: " + savedCount;
+        }
+        
          ReadData();
 
         // Limpiar los campos después de agregar datos
