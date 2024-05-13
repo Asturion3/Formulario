@@ -1,10 +1,4 @@
-//Funcion del counter
-let counter = 0;
 
-document.getElementById('btnAdd').addEventListener('click', function() {
-    counter++;
-    document.getElementById('counter').textContent = "Guardados: " + counter;
-});
 
 // Funcion de generar numeros de 20 digitos
 function generateNumbers() {
@@ -195,9 +189,6 @@ function AddData() {
         document.getElementById('InputResultado').value = '';
         document.getElementById('InputDescripcion').value = '';
         document.getElementById('generatedNumbers').value = '';
-
-        // Incrementar contador
-        incrementCounter();
 
         // Leer y mostrar los datos
         ReadData();
