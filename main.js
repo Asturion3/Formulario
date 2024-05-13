@@ -174,9 +174,8 @@ function AddData() {
         });
         localStorage.setItem('listPeople', JSON.stringify(listPeople));
         alert("Se ha guardado correctamente");
-            
-         ReadData();
-
+    } 
+ReadData();
         // Limpiar los campos después de agregar datos
         document.getElementById('InputLlamada').value = '';
         document.getElementById('InputPhone').value = '';
