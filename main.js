@@ -1,15 +1,3 @@
-// Función para limpiar las tablas
-function clearTables() {
-    document.querySelector('tableData').innerHTML = ""; // Limpia la tabla generada por ReadData()
-    // Agrega aquí cualquier otra tabla que necesites limpiar
-}
-
-// Asignar la función saveDataToFile() al botón correspondiente
-let saveButton = document.getElementById('saveButton');
-saveButton.addEventListener('click', function() {
-    saveDataToFile();
-    clearTables(); // Llama a la función para limpiar las tablas
-});
 
 
 // Funcion de generar numeros de 20 digitos
