@@ -1,6 +1,6 @@
 // Función para limpiar las tablas
 function clearTables() {
-    document.querySelector('#tableData').innerHTML = ""; // Limpia la tabla generada por ReadData()
+    document.querySelector('tableData').innerHTML = ""; // Limpia la tabla generada por ReadData()
     // Agrega aquí cualquier otra tabla que necesites limpiar
 }
 
