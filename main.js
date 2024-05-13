@@ -1,24 +1,4 @@
-// Función para guardar el contenido del textarea en localStorage
-function saveTextareaContent() {
-    let textareaContent = document.getElementById('yourTextareaId').value;
-    localStorage.setItem('textareaContent', textareaContent);
-}
 
-// Función para cargar el contenido del textarea desde localStorage
-function loadTextareaContent() {
-    let textareaContent = localStorage.getItem('textareaContent');
-    if (textareaContent) {
-        document.getElementById('yourTextareaId').value = textareaContent;
-    }
-}
-
-// Al cargar la página, cargar el contenido del textarea desde localStorage
-window.onload = function() {
-    loadTextareaContent();
-};
-
-// Llamar a la función saveTextareaContent() cuando se cambie el contenido del textarea
-document.getElementById('yourTextareaId').addEventListener('input', saveTextareaContent);
 //modificacion de aca hacia arriba
 
 // Funcion de generar numeros de 20 digitos
