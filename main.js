@@ -1,3 +1,14 @@
+//Funcion para agregar numeros al contador 
+let savedCount = 0;
+
+document.querySelector('.saveButton').addEventListener('click', function() {
+    // Incrementar el contador
+    savedCount++;
+    // Actualizar el texto del contador
+    document.getElementById('counter').textContent = "Guardados: " + savedCount;
+});
+
+
 // Funcion de generar numeros de 20 digitos
 function generateNumbers() {
         var currentDate = new Date();
