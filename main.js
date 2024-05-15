@@ -244,14 +244,19 @@ function editData(index) {
 }
 
 function saveDataToFile() {
+//modificacion
+        // Obtener el elemento que contiene las tablas generadas
+    var tableContainer = document.getElementById('tableData');
+    
+    // Eliminar el contenido del elemento para borrar las tablas
+    tableContainer.innerHTML = '';
     let listPeople = JSON.parse(localStorage.getItem('listPeople'));
 
     // Verificar si hay datos en el localStorage
     if (!listPeople || listPeople.length === 0) {
         alert("No hay datos guardados para exportar.");
         return;
-    }
-
+//modificacion
     // Obtener la fecha y hora actual
     let currentDate = new Date();
     let dateTimeString = currentDate.toLocaleString().replace(/[/\\?%*:|"<>]/g, '-'); // Reemplazar caracteres no permitidos en nombres de archivos
